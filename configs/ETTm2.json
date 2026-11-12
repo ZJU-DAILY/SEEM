@@ -1,0 +1,103 @@
+{
+  "engine": "ettm",
+  "horizons": {
+    "192": {
+      "framework": {
+        "learning_rate": 0.0001,
+        "weight_decay": 0.001,
+        "epochs": 20,
+        "batch_size": 64
+      },
+      "evolution": {
+        "A_steps": 25,
+        "Writer_steps": 50,
+        "A_lr": 0.0001,
+        "Writer_lr": 0.0005,
+        "rounds": 5,
+        "physical_chunk": 64
+      }
+    },
+    "336": {
+      "framework": {
+        "learning_rate": 0.0001,
+        "weight_decay": 0.001,
+        "epochs": 20,
+        "batch_size": 64
+      },
+      "evolution": {
+        "A_steps": 15,
+        "Writer_steps": 25,
+        "A_lr": 0.0003,
+        "Writer_lr": 0.0001,
+        "rounds": 5,
+        "physical_chunk": 64
+      }
+    },
+    "720": {
+      "framework": {
+        "learning_rate": 0.0001,
+        "weight_decay": 0.001,
+        "epochs": 20,
+        "batch_size": 64
+      },
+      "evolution": {
+        "A_steps": 25,
+        "Writer_steps": 25,
+        "A_lr": 0.0003,
+        "Writer_lr": 0.0001,
+        "rounds": 5,
+        "physical_chunk": 64
+      }
+    },
+    "96": {
+      "framework": {
+        "epochs": 20,
+        "learning_rate": 0.0001,
+        "weight_decay": 0.001,
+        "batch_size": 64
+      },
+      "evolution": {
+        "rounds": 5,
+        "A_steps": 25,
+        "Writer_steps": 25,
+        "A_lr": 0.0001,
+        "Writer_lr": 0.0003,
+        "physical_chunk": 64
+      }
+    }
+  },
+  "dataset": "ETTm2",
+  "seq_len": 96,
+  "seeds": [
+    42
+  ],
+  "groups": 2048,
+  "hparams": {
+    "lambda_pcl": 0.1,
+    "tau_p": 0.05,
+    "top_k": 20,
+    "tau_r": 0.1
+  },
+  "teacher": {
+    "teacher_candidates": 256,
+    "teacher_steps": 256,
+    "teacher_tolerance": 1e-07,
+    "teacher_batch_size": 32,
+    "weight_weight": 0.1,
+    "effect_weight": 0.1
+  },
+  "backbone": {
+    "seq_len": 96,
+    "hidden": 512,
+    "dropout": 0.1,
+    "eps": 1e-05,
+    "seed": 42,
+    "epochs": 30,
+    "batch_size": 64,
+    "learning_rate": 0.001,
+    "patience": 10
+  },
+  "network": {
+    "matcher_score_scaling": "none"
+  }
+}

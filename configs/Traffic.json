@@ -1,0 +1,131 @@
+{
+  "engine": "traffic",
+  "horizons": {
+    "96": {
+      "framework": {
+        "epochs": 5,
+        "learning_rate": 0.0001,
+        "weight_decay": 0.001,
+        "batch_size": 64,
+        "train_batch_schedule": [
+          64,
+          64,
+          64,
+          64,
+          64
+        ]
+      },
+      "evolution": {
+        "rounds": 5,
+        "A_steps": 25,
+        "Writer_steps": 25,
+        "A_lr": 0.0001,
+        "Writer_lr": 0.0001,
+        "physical_chunk": 128
+      }
+    },
+    "192": {
+      "framework": {
+        "epochs": 5,
+        "learning_rate": 0.0001,
+        "weight_decay": 0.001,
+        "batch_size": 64,
+        "train_batch_schedule": [
+          64,
+          64,
+          64,
+          64,
+          64
+        ]
+      },
+      "evolution": {
+        "rounds": 5,
+        "A_steps": 25,
+        "Writer_steps": 25,
+        "A_lr": 0.0001,
+        "Writer_lr": 0.0001,
+        "physical_chunk": 128
+      }
+    },
+    "336": {
+      "framework": {
+        "epochs": 5,
+        "learning_rate": 0.0001,
+        "weight_decay": 0.001,
+        "batch_size": 64,
+        "train_batch_schedule": [
+          64,
+          64,
+          64,
+          64,
+          64
+        ]
+      },
+      "evolution": {
+        "rounds": 5,
+        "A_steps": 25,
+        "Writer_steps": 25,
+        "A_lr": 0.0001,
+        "Writer_lr": 0.0001,
+        "physical_chunk": 128
+      }
+    },
+    "720": {
+      "framework": {
+        "epochs": 5,
+        "learning_rate": 0.0001,
+        "weight_decay": 0.001,
+        "batch_size": 64,
+        "train_batch_schedule": [
+          64,
+          64,
+          64,
+          64,
+          64
+        ]
+      },
+      "evolution": {
+        "rounds": 5,
+        "A_steps": 25,
+        "Writer_steps": 25,
+        "A_lr": 0.0001,
+        "Writer_lr": 0.0001,
+        "physical_chunk": 128
+      }
+    }
+  },
+  "dataset": "Traffic",
+  "seq_len": 96,
+  "seeds": [
+    42
+  ],
+  "groups": 2048,
+  "hparams": {
+    "lambda_pcl": 0.1,
+    "tau_p": 0.05,
+    "top_k": 20,
+    "tau_r": 0.1
+  },
+  "teacher": {
+    "teacher_candidates": 256,
+    "teacher_steps": 256,
+    "teacher_tolerance": 1e-07,
+    "teacher_batch_size": 32,
+    "weight_weight": 0.1,
+    "effect_weight": 0.1
+  },
+  "backbone": {
+    "seq_len": 96,
+    "hidden": 512,
+    "dropout": 0.1,
+    "eps": 1e-05,
+    "seed": 42,
+    "epochs": 30,
+    "batch_size": 64,
+    "learning_rate": 0.001,
+    "patience": 10
+  },
+  "network": {
+    "matcher_score_scaling": "7/channels"
+  }
+}
