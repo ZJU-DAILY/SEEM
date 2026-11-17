@@ -60,27 +60,6 @@ SEEM/
 
 `core/` groups the implementation by function: `networks.py` defines the networks, `data.py` prepares inputs, `memory.py` builds experiences, `teacher.py` constructs supervision, `framework.py` and `training.py` handle retrieval and fusion, and `evolution.py` implements FDEE. `backbone.py`, `inference.py`, `cache.py`, `results.py`, `resources.py`, `runtime.py`, `utils.py`, and `pipeline.py` support training and execution. `engines/` contains dataset-specific execution logic. Experiment parameters are stored in `configs/<dataset>.json`.
 
-## Running experiments
-
-This release contains the MLP + SEEM main experiments with input length 96, prediction lengths 96/192/336/720, and default seed 42: 28 runs in total.
-
-Run one configuration:
-
-```bash
-python run.py --dataset ETTh1 --horizon 96 --device cuda --resume
-```
-
-Run all four horizons for one dataset, or all seven datasets:
-
-```bash
-bash scripts/ETTh1.sh
-bash scripts/run_all.sh
-```
-
-Dataset scripts are also provided for ETTh2, ETTm1, ETTm2, Weather, Electricity, and Traffic. They run sequentially, resume interrupted tasks, and skip completed runs. Logs are saved in `logs/`; checkpoints and results are saved in `outputs/`.
-
-Each run pretrains the MLP, freezes its weights, constructs the experience memory and Teacher targets, trains the retrieval and fusion modules, and performs offline evolution. Pretrained weights are not bundled. To supply compatible weights, use `--backbone-checkpoint /path/to/best.pt` with a raw ResidualMLP state dictionary. Use `--dry-run` to inspect a configuration without training.
-
 ## Results
 
 ```bash
